@@ -8,3 +8,8 @@
 
 * OpenHCOS/HCOS: HCOS - Home Care Open System (開放在宅照護系統) https://github.com/OpenHCOS/HCOS
 * HCOS/tools/OmahaSystemLocalization/OSTableToJson at master · OpenHCOS/HCOS https://github.com/OpenHCOS/HCOS/tree/master/tools/OmahaSystemLocalization/OSTableToJson
+
+## Hyperledger Composer 
+
+* Installing the development environment | Hyperledger Composer https://hyperledger.github.io/composer/next/installing/development-tools.html
+* composer-sample-networks/packages at master · hyperledger/composer-sample-networks https://github.com/hyperledger/composer-sample-networks/tree/master/packages
