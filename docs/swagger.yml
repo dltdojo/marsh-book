@@ -1,0 +1,43 @@
+openapi: "3.0.0"
+info:
+  version: 0.0.1
+  title: 澤書系統 OpenAPI Specification v3
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:3000/marsh-book/v1
+security:
+  - bearerAuth: []
+paths:
+  /util/version:
+    get:
+      tags:
+        - util
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    QueryDTO:
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
