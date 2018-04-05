@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
-  "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
-  "license": "MIT",
+  "name": "mb-api",
+  "version": "0.0.2",
+  "description": "MarshBook API Service",
+  "license": "Apache",
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
@@ -10,6 +10,10 @@
     "prestart:prod": "rm -rf dist && tsc",
     "start:prod": "node dist/main.js",
     "start:apipage": "cd ../docs && lite-server",
+    "reset:db":"shx rm mydb.sqlite",
+    "test:wait-on-e2e": "wait-on http://localhost:3000 && npm run test:e2e",
+    "test:start-wait-e2e": "run-p start test:wait-on-e2e",
+    "test:all": "run-s reset:db test:start-wait-e2e",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json"
@@ -19,9 +23,16 @@
     "@nestjs/core": "^4.5.10",
     "@nestjs/microservices": "^4.5.8",
     "@nestjs/testing": "^4.5.5",
+    "@nestjs/typeorm": "^2.0.0",
     "@nestjs/websockets": "^4.5.8",
+    "@types/passport-jwt": "^3.0.1",
+    "bcrypt": "^1.0.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^5.5.6",
+    "sqlite3": "^4.0.0",
+    "typeorm": "^0.1.20",
     "typescript": "^2.6.2"
   },
   "devDependencies": {

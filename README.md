@@ -1,8 +1,9 @@
 # marsh-book
-澤書 - 博祖克模式的區塊驗智能合約概念試驗專案
+澤書 - 個人照護履歷區塊鏈智能合約概念試驗專案
 
 [澤書系統 OpenAPI Specification v3](https://dltdojo.github.io/marsh-book/api.html)
 
+博祖克模式資訊以OMAHA系統方式紀錄，照護紀錄通常由機構持有，該專案試圖轉成使用者持有照護紀錄的區塊鏈式儲存。
 
 ## 相關資源
 

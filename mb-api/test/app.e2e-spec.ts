@@ -1,24 +1,13 @@
 import request from 'supertest';
-import { Test } from '@nestjs/testing';
-import { AppModule } from './../src/app.module';
-import { INestApplication } from '@nestjs/common';
 
-describe('AppController (e2e)', () => {
-  let app: INestApplication;
+const req = request('http://localhost:3000');
 
-  beforeAll(async () => {
-    const moduleFixture = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+test('It should response 200', async () => {
+  const response = await req.get('/api/v1/util/version');
+  expect(response.statusCode).toBe(200);
+});
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
-
-  it('/GET /', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
-  });
+test('It should response 404', async () => {
+  const response = await req.get('/api/v1/util/api-not-exist');
+  expect(response.statusCode).toBe(404);
 });

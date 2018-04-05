@@ -20,6 +20,9 @@ npm run start:prod
 ## Test
 
 ```bash
+# all tests
+$ npm run test:all
+
 # unit tests
 $ npm run test
 
@@ -28,6 +31,13 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+## Create jwt key files
+
+```
+openssl ecparam -name prime256v1 -genkey -param_enc explicit -out es256-private-testonly.pem
+openssl ec -in es256-private-testonly.pem -pubout -out es256-public-testonly.pem
 ```
 
 ## Support
