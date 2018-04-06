@@ -25,11 +25,11 @@ export class AuthController {
                 const userData = {
                     id: user.id,
                     username: user.username,
-                    isAdmin: user.roles.indexOf("SYSTEM") > -1
+                    isAdmin: user.roles.indexOf('SYSTEM') > -1,
                 }
                 const r = {
-                    user:userData,
-                    jwt
+                    user: userData,
+                    jwt,
                 }
                 return res.status(HttpStatus.OK).json(r);
             }

@@ -1,9 +1,52 @@
-<HTML>
-    <head>
-        <title>marsh-book</title>
-    </head>
-    <BODY>
-        <H1>HELLO MARSHBOOK</H1>
-        <H3><a href="api.html">澤書系統 OpenAPI Specification v3</a></H3>
-    </BODY>
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <title>marsh-book</title>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+</head>
+
+<BODY>
+    <!-- Our application root element -->
+    <div id="app" style="margin-top:3em;">
+        <b-container>
+            <b-jumbotron>
+                <template slot="header">
+                    澤書 MarshBook
+                </template>
+                <template slot="lead">
+                    個人照護履歷區塊鏈智能合約概念試驗專案
+                </template>
+                <hr class="my-4">
+                <div>
+                    <b-card overlay img-src="https://lorempixel.com/800/250/people" img-alt="Card Image" text-variant="white" title="MarshBook"
+                        sub-title="Our Personal Data Are Precious.">
+                        <p class="card-text">
+                                資料擁有權從機構移轉到個人的概念實驗系統
+                        </p>
+                    </b-card>
+                </div>
+                <p>
+                    試驗期程半年
+                </p>
+                <b-btn variant="primary" href="api.html">OpenAPI Specification v3</b-btn>
+                <b-btn variant="success" href="https://github.com/dltdojo/marsh-book">Github</b-btn>
+            </b-jumbotron>
+        </b-container>
+    </div>
+    <!-- Add this after vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script>
+        window.app = new Vue({
+            el: "#app",
+            data: {
+                name: ''
+            }
+        })
+    </script>
+</BODY>
+
 </HTML>

@@ -10,4 +10,11 @@ export class UtilController {
     return { version, time };
   }
 
+  @Get('authorized')
+  authroized() {
+    const time = new Date();
+    const version = process.env.VERSION || '0.18.04.08';
+    return { auth: true, version, time };
+  }
+
 }

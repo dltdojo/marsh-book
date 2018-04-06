@@ -3,7 +3,7 @@ import {
     Module,
     NestModule,
     MiddlewaresConsumer,
-    RequestMethod
+    RequestMethod,
 } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
@@ -14,13 +14,14 @@ import { UserModule } from '../user/user.module';
 @Module({
     imports: [UserModule],
     components: [AuthService, JwtStrategy],
-    controllers: [AuthController]
+    controllers: [AuthController],
 })
 export class AuthModule implements NestModule {
     public configure(consumber: MiddlewaresConsumer) {
         consumber.apply(passport.authenticate('jwt', { session: false }))
             .forRoutes(
                 { path: '/user/users', method: RequestMethod.GET },
+                { path: '/util/authorized', method: RequestMethod.ALL },
         );
     }
 }
