@@ -110,16 +110,28 @@ test('login without password, 400 bad request', async () => {
   });
 });
 
-test('/event, new event, role user, 201 created', async () => {
-  const event = new EventEntity();
-  event.omaha = '{"D1":"OK"}';
-  const response = await PostReq('/event', event, authJwt.bob101_access_token);
-  // console.log(response);
-  expect(response.statusCode).toBe(HttpStatus.CREATED);
-});
+// test('/event, new event, role user, 201 created', async () => {
+//   const event = new EventEntity();
+//   event.omaha = '{"D1":"OK"}';
+//   const response = await PostReq('/event', event, authJwt.bob101_access_token);
+//   expect(response.statusCode).toBe(HttpStatus.CREATED);
+// });
 
-test('/event/events, role user, 200 ok', async () => {
-  const response = await GetReq('/event/events', authJwt.bob101_access_token);
-  expect(response.statusCode).toBe(200);
-  console.log(response.body);
-});
+test('/event, new event, non-auth, 201 created', async () => {
+   const event = new EventEntity();
+   event.omaha = '{"D1":"OK"}';
+   const response = await PostReq('/event', event);
+   expect(response.statusCode).toBe(HttpStatus.CREATED);
+ });
+
+// test('/event/events, role user, 200 ok', async () => {
+//   const response = await GetReq('/event/events', authJwt.bob101_access_token);
+//   expect(response.statusCode).toBe(200);
+//   console.log(response.body);
+// });
+
+test('/event/events, non-auth , 200 ok', async () => {
+   const response = await GetReq('/event/events');
+   expect(response.statusCode).toBe(200);
+   console.log(response.body);
+ });
