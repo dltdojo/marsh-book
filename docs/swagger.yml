@@ -11,6 +11,36 @@ servers:
 security:
   - bearerAuth: []
 paths:
+  /event/events:
+    get:
+      summary: "取得所有博祖克事件列表, role: USER"
+      tags:
+        - event
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+  /event:
+    post:
+      summary: "新增博祖克事件, role: USER"
+      tags:
+        - event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                omaha:
+                  type: string
+              example:
+                omaha: '{"D1":""OK}'
+      responses:
+        '200':
+          content:
+            application/json:
   /util/version:
     get:
       tags:

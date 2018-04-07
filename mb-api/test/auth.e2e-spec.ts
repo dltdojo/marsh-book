@@ -112,7 +112,6 @@ test('login without password, 400 bad request', async () => {
 
 test('/event, new event, role user, 201 created', async () => {
   const event = new EventEntity();
-  event.timestamp = new Date();
   event.omaha = '{"D1":"OK"}';
   const response = await PostReq('/event', event, authJwt.bob101_access_token);
   // console.log(response);

@@ -24,6 +24,7 @@ export class EventController {
         if (!body) {
             return res.status(HttpStatus.BAD_REQUEST).json({ message: 'event is required!' });
         }
+        body.timestamp = new Date();
         const result = await this.eventService.createEvent(body);
         //return res.status(HttpStatus.CREATED).json(result);
         console.log(body)
