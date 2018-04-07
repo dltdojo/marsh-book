@@ -25,7 +25,7 @@ export class UserService {
 
     // clear password as we don't persist passwords
     user.password = undefined;
-    console.log('user.service:createUser=', user);
+    // console.log('user.service:createUser=', user);
     return this.userRepository.save(user);
   }
 

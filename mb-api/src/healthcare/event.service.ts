@@ -1,20 +1,20 @@
 import { Component, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Event } from './event.entity';
+import { EventEntity } from './event.entity';
 
 @Component()
 export class EventService {
 
   constructor(
-    @InjectRepository(Event)
-    private readonly repository: Repository<Event>) {}
+    @InjectRepository(EventEntity)
+    private readonly repository: Repository<EventEntity>) {}
 
-  async getEvents(): Promise<Event[]> {
+  async getEvents(): Promise<EventEntity[]> {
     return await this.repository.find();
   }
 
-  async createEvent(event: Event): Promise<Event> {
+  async createEvent(event: EventEntity): Promise<EventEntity> {
     return this.repository.save(event);
   }
   
